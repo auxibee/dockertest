@@ -31,19 +31,6 @@ jobs:
           context: .
           push: true
           tags: auxibee/dockertest:latest
-    deploy:
-      needs:docker
-      runs-on: ubuntu-latest
-
-      steps:
-        -name: Deploy to Digital Ocean
-          uses: appleboy/ssh-action@master
-          with:
-            host: ${{secrets.HOST}}
-            username: ${{secrets.USERNAME}}
-            key: ${{secrets.KEY}}
-            script: |
-                docker compose down
-                docker compose pull && docker compose up -d
+   
  
       
