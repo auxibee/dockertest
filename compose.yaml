@@ -9,20 +9,19 @@
 # https://github.com/docker/awesome-compose
 services:
   server:
-    # image: auxibee/dockertest:latest
-    build: .
+    image: auxibee/dockertest:latest
     environment:
       NODE_ENV: production
     ports:
       - 3000:3000
 
-  postgres:
-    image: postgres:latest
-    environment:
-      POSTGRES_DB: $POSTGRES_DB
-      POSTGRES_USER: $POSTGRES_USER
-      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
-    ports:
-      - 5432:5432
-    expose:
-      - 5432
+  # postgres:
+  #   image: postgres:latest
+  #   environment:
+  #     POSTGRES_DB: $POSTGRES_DB
+  #     POSTGRES_USER: $POSTGRES_USER
+  #     POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+  #   ports:
+  #     - 5432:5432
+  #   expose:
+  #     - 5432
