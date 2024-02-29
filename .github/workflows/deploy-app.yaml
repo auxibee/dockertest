@@ -31,18 +31,18 @@ jobs:
   #         context: .
   #         push: true
   #         tags: auxibee/dockertest:latest
-    deploy:
-      needs: docker
-      runs-on: ubuntu-latest
-      steps:
-        - name: Deploy to DigitalOcean Droplet
-          uses: appleboy/ssh-action@v0.1.7
-          with:
-            host: ${{secrets.HOST}}
-            username: ${{secrets.USERNAME}}
-            key: ${{secrets.KEY}}
-            passphrase: $ {{secrets.PASSPHRASE}}
-            script: |
-                  docker compose down
-                  docker compose pull && docker compose up -d 
+  deploy:
+    needs: docker
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to DigitalOcean Droplet
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{secrets.HOST}}
+          username: ${{secrets.USERNAME}}
+          key: ${{secrets.KEY}}
+          passphrase: $ {{secrets.PASSPHRASE}}
+          script: |
+                docker compose down
+                docker compose pull && docker compose up -d   
    
