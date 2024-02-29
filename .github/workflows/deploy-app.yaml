@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to DigitalOcean Droplet
-        uses: appleboy/ssh-action@v0.1.7
+        uses: appleboy/ssh-action@latest
         with:
           host: ${{secrets.HOST}}
           username: ${{secrets.USERNAME}}
